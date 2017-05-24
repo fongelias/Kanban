@@ -6,7 +6,7 @@ const webpack = require('webpack');
 //Module==================================================================
 module.exports = {
 	entry: { //Where bundler starts
-		kanbanApp: './dev/app/kanbanApp.js'
+		kanban: './dev/app/kanban.js'
 	},
 	output: { //Where bundled code is to be saved
 		path: path.resolve('public/'), 
@@ -14,7 +14,8 @@ module.exports = {
 	},
 	module: {
 		loaders: [ //Transformations
-			{enforce: 'pre', test: /\.js$/, loader: 'eslint-loader', exclude: /node_modules/, options: {failOnError: true,}},
+			//{enforce: 'pre', test: /\.js$/, loader: 'eslint-loader', exclude: /node_modules/, options: {failOnError: true,}},
+			{test: /\.html$/, loader: 'html-loader' },
 			{test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/},
 			{test: /\.scss$/, loader: ExtractTextPlugin.extract('css-loader!sass-loader')},
 			{test: /\.(woff|woff2|eot|ttf|otf)$/, loader: 'url-loader?limit=65000&mimetype=application/font-woff&name=../fonts/[name].[ext]'}
