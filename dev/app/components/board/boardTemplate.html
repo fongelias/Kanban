@@ -1,0 +1,7 @@
+<div>
+	<input ng-model="$ctrl.board.title"/>
+	<button ng-click="$ctrl.deleteBoard()"></button>
+	<div>
+		<task ng-repeat="task in $ctrl.tasks" task="task"></task>
+	</div>
+</div>
