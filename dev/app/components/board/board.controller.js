@@ -5,6 +5,6 @@ export default function boardCtrl() {
 
 	this.deleteBoard = function(){
 		console.log(_this.onDelete);
-		_this.onDelete(_this.board);
+		_this.onDelete({board: _this.board});
 	};
 }

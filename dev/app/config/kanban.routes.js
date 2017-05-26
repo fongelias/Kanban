@@ -7,6 +7,6 @@ export default function($routeProvider) {
 		.when('/', {
 			template: dashboardTemplate,
 			controller: 'dashboardCtrl',
-			controllerAs: 'ctrl'
+			controllerAs: '$ctrl',
 		});
 }
