@@ -1,10 +1,10 @@
 //Dependencies
 //Controller
-export default ['$rootScope','indexDB', function($rootScope, indexDB) {
+export default ['$rootScope','$scope', 'indexDB', function($rootScope, $scope, indexDB) {
 	$rootScope.title = 'You Kan do it! | Kanban';
 	let _this = this;
 	
-	this.boards = [
+	$scope.boards = [
 		{
 			_id: 'b1',
 			title: 'backlog',
@@ -14,14 +14,21 @@ export default ['$rootScope','indexDB', function($rootScope, indexDB) {
 
 	indexDB.init().then((result)=>{
 		indexDB.db = result;
+		console.log(result);
 		//indexDB.add({_id: 'b1', title: 'backlog'}, 'boards');
-		indexDB.update({_id: 'b1', title: 'backlo'}, 'boards')
+		//indexDB.update({_id: 'b1', title: 'backlo'}, 'boards');
 		console.log(indexDB.retrieve('boards'));
+		indexDB.retrieve('boards').then((result)=>{
+			result.forEach((board)=>{
+				$scope.boards.push(board);
+				$scope.$apply();
+			})
+		});
 	});
 
 
 	this.addBoard = function() {
-		_this.boards.push({
+		$scope.boards.push({
 			_id: 'b2',
 			title: 'in progress',
 			tasks: ['t3', 't4'],
@@ -37,9 +44,9 @@ export default ['$rootScope','indexDB', function($rootScope, indexDB) {
 
 	this.deleteBoard = function(board) {
 		console.log(board);
-		let index = _this.boards.indexOf(board);
+		let index = $scope.boards.indexOf(board);
 		if (index !== -1) {
-			_this.boards.splice(index, 1);
+			$scope.boards.splice(index, 1);
 		}
 	};
 }]
