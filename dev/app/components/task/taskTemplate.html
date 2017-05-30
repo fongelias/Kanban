@@ -1,2 +1,4 @@
-<div>Task</div>
-<div>{{ ctrl.task.title }}</div>
+<div>
+	<input ng-model="$ctrl.task.title" ng-change="$ctrl.updateTask()"/>
+	<button ng-click="$ctrl.deleteTask()"></button>
+</div>

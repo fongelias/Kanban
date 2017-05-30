@@ -1,7 +1,8 @@
 <div>
 	<input ng-model="$ctrl.board.title" ng-change="$ctrl.updateBoard()"/>
 	<button ng-click="$ctrl.deleteBoard()"></button>
+	<button ng-click="$ctrl.addTask()"></button>
 	<div>
-		<task ng-repeat="task in $ctrl.tasks" task="task"></task>
+		<task ng-repeat="task in $ctrl.board.tasks" task="task" on-update="$ctrl.updateTask(task)" on-delete="$ctrl.deleteTask(task)"></task>
 	</div>
 </div>

@@ -28,7 +28,7 @@ export default class IndexDBService {
 		request.onupgradeneeded = function(event) {
 			console.log('Upgrading idb');
 			var db = event.target.result;
-			var objectStore = db.createObjectStore('boards', {keyPath: '_id'});
+			var objectStore = db.createObjectStore('boards', {keyPath: '_id', autoIncrement:true});
 			objectStore.transaction.oncomplete = function(event) {
 				console.log(db);
 			}
@@ -55,10 +55,17 @@ export default class IndexDBService {
 	}
 
 	retrieve(storeName) {
-		let _this = this;
-		let request = _this.db.transaction([storeName], 'readwrite')
+		let request = this.db.transaction([storeName], 'readwrite')
 			.objectStore(storeName)
 			.getAll();
+
+		return promisify(request);
+	}
+
+	delete(id, storeName) {
+		let request = this.db.transaction([storeName], 'readwrite')
+			.objectStore(storeName)
+			.delete(id);
 
 		return promisify(request);
 	}
