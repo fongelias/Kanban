@@ -1,3 +1,5 @@
-<div>Dashboard</div>
-<board ng-repeat="board in boards" board="board" on-update="$ctrl.updateBoard(board)" on-delete="$ctrl.deleteBoard(board)" ></board>
-<button ng-Click="$ctrl.addBoard()">Add Board</button>
+<h1>Kanban Dashboard</h1>
+<section class="board-list">
+	<board ng-repeat="board in boards" board="board" on-update="$ctrl.updateBoard(board)" on-delete="$ctrl.deleteBoard(board)" ></board>
+	<button class="add-board" ng-Click="$ctrl.addBoard()">Add Board</button>
+</section>

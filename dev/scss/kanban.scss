@@ -1,0 +1,159 @@
+/*-- Variables --*/
+$light-blue: #edf3fa;
+$sky-blue: #cbdbf0;
+$mid-blue: #b1c9e9;
+$light-purple: #9e91cb;
+$purple: #866daf;
+$dark-purple: #463f70;
+$transparent: rgba(0,0,0,0);
+/*-- Mixins --*/
+@import './mixins/__flexbox';
+@import './mixins/__animate';
+/*-- Primary Containers --*/
+* {
+	box-sizing: border-box;
+}
+
+html, body {
+	padding:0;
+	margin: 0;
+	height: 100%;
+	width: 100%;
+}
+
+html {
+	overflow: hidden;
+}
+
+body {
+	@include flexbox;
+	@include flex-direction(column);
+	@include flex-wrap(nowrap);
+	@include justify-content(flex-start);
+	@include align-items(stretch);
+	@include align-content(stretch);
+	background: $light-blue;
+}
+
+/*-- Components --*/
+h1 {
+	padding-left: 20px;
+	font-family: Helvetica, sans-serif;
+}
+
+
+.board-list {
+	@include flexbox;
+	@include flex-direction(column);
+	@include justify-content(center);
+	padding: 10px;
+
+	.add-board {
+		@include transition(all 0.3s ease);
+		height: 40px;
+	    width: 95px;
+	    font-size: 12px;
+	    color: #ffffff;
+	    background: $purple;
+	    border: 0px;
+	    border-radius: 5px;
+	    margin-left: calc((100% - 95px) / 2);
+
+	    &:hover {
+	    	background: $light-purple;
+	    }
+
+	    &:active {
+	    	background: $dark-purple;
+	    }
+	}
+}
+
+.board {
+	@include flexbox;
+	@include flex-direction(column);
+	@include justify-content(center);
+	position: relative;
+	background: $sky-blue;
+	padding: 10px;
+	margin-bottom: 20px;
+	box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14), 0 2px 9px 1px rgba(0,0,0,0.12), 0 4px 2px -2px rgba(0,0,0,0.2);
+
+	input {
+		border: 0px;
+		border-bottom: 1px solid #645ba0;
+		background: $transparent;
+		outline: none;
+		font-size: 25px;
+	}
+
+	.delete-board-button {
+		position: absolute;
+		top: 17px;
+		right: 11px;
+		background: $transparent;
+		border:0px;
+	}
+
+	.task-list {
+		@include flexbox;
+		@include flex-direction(column);
+		@include justify-content(center);
+		padding: 10px;
+
+		.task {
+			position: relative;
+			width: 100%;
+			background: $mid-blue;
+			padding: 10px;
+			margin-bottom: 10px;
+			box-shadow: 0 4px 5px 0 rgba(0,0,0,0.07), 0 2px 9px 1px rgba(0,0,0,0.06), 0 4px 2px -2px rgba(0,0,0,0.1);
+
+			input {
+				width: 100%;
+				border: 0px;
+				border-bottom: 1px solid #645ba0;
+				background: $transparent;
+				outline: none;
+				font-size: 15px;
+			}
+
+			.delete-task-button {
+				position: absolute;
+				top: 11px;
+				right: 10px;
+				background: $transparent;
+				border:0px;
+			}
+		}
+	}
+
+	.add-task-button {
+		@include transition(all 0.3s ease);
+		height: 40px;
+	    width: 95px;
+	    font-size: 12px;
+	    color: #ffffff;
+	    background: $purple;
+	    border: 0px;
+	    border-radius: 5px;
+	    margin-left: calc((100% - 95px) / 2);
+
+	    &:hover {
+	    	background: $light-purple;
+	    }
+
+	    &:active {
+	    	background: $dark-purple;
+	    }
+	}
+}
+
+
+
+
+
+
+
+
+

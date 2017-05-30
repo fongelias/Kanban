@@ -8,6 +8,9 @@ import { board } from './components/board/board';
 import { task } from './components/task/task';
 import dashboardCtrl from './pages/dashboard/dashboardCtrl';
 import indexDBService from './services/indexDB.service';
+//Styles
+require('../scss/kanban.scss');
+
 
 
 const requires = [
