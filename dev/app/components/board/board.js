@@ -1,13 +1,14 @@
 //Dependencies
 import boardTemplate from './boardTemplate.html';
+import boardCtrl from './board.controller';
 
 //Component
 export const board = {
 	template: boardTemplate,
-	controller: 'boardCtrl',
-	controllerAs: 'boardCtrl',
+	controller: boardCtrl,
 	bindings: {
-		board: '=',
+		board: '<',
 		onDelete: '&',
+		onUpdate: '&',
 	}
 };

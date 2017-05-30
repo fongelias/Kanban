@@ -7,7 +7,8 @@ import routes from './config/kanban.routes';
 import { board } from './components/board/board';
 import { task } from './components/task/task';
 import dashboardCtrl from './pages/dashboard/dashboardCtrl';
-import boardCtrl from './components/board/board.controller';
+import indexDBService from './services/indexDB.service';
+
 
 const requires = [
 	'ngRoute',
@@ -15,8 +16,8 @@ const requires = [
 
 //App
 angular.module('kanban',requires)
+		.service('indexDB', indexDBService)
 		.controller('dashboardCtrl', dashboardCtrl)
-		.controller('boardCtrl', boardCtrl)
 		.component('board', board)
 		.component('task', task)
 		.config(routes);

@@ -1,6 +1,6 @@
 //Dependencies
 //Controller
-export default function($rootScope) {
+export default ['$rootScope','indexDB', function($rootScope, indexDB) {
 	$rootScope.title = 'You Kan do it! | Kanban';
 	let _this = this;
 	
@@ -12,6 +12,14 @@ export default function($rootScope) {
 		}
 	];
 
+	indexDB.init().then((result)=>{
+		indexDB.db = result;
+		//indexDB.add({_id: 'b1', title: 'backlog'}, 'boards');
+		indexDB.update({_id: 'b1', title: 'backlo'}, 'boards')
+		console.log(indexDB.retrieve('boards'));
+	});
+
+
 	this.addBoard = function() {
 		_this.boards.push({
 			_id: 'b2',
@@ -20,6 +28,13 @@ export default function($rootScope) {
 		});
 	};
 
+	this.updateBoard = function(board) {
+		/*indexDB.init().then((result)=>{
+			indexDB.db = result;
+			console.log(indexDB.update(board, 'boards'));
+		})*/
+	}
+
 	this.deleteBoard = function(board) {
 		console.log(board);
 		let index = _this.boards.indexOf(board);
@@ -27,4 +42,4 @@ export default function($rootScope) {
 			_this.boards.splice(index, 1);
 		}
 	};
-}
+}]
