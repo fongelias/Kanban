@@ -24,7 +24,7 @@ if('serviceWorker' in navigator) {
 }
 
 /*Service worker file should start here*/
-var CACHE_NAME = 'kanban-5-30-17';
+var CACHE_NAME = 'kanban-5-31-17';
 var urlsToCache = [
 	'/',
 	'css/kanban.css',
