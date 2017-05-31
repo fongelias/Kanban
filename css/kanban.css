@@ -1,0 +1,189 @@
+/*-- Variables --*/
+/*-- Mixins --*/
+/*-- Parent Container Initial Flex Property --*/
+/*-- Parent Container Flex Direction --*/
+/*-- Parent Container Flex Wrap --*/
+/*-- Child Element Flex Grow --*/
+/*-- Parent Container Justify Content--*/
+/*-- Parent Container Align Items --*/
+/*-- Parent Container Align Content --*/
+/*-- Transition --*/
+/*-- Primary Containers --*/
+* {
+  box-sizing: border-box; }
+
+html, body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%; }
+
+html {
+  overflow: hidden; }
+
+body {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-direction: normal;
+  -webkit-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-flex-wrap: nowrap;
+  -moz-flex-wrap: nowrap;
+  -ms-flex-wrap: none;
+  flex-wrap: nowrap;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  -webkit-justify-content: flex-start;
+  -moz-justify-content: flex-start;
+  justify-content: flex-start;
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  -webkit-align-items: stretch;
+  -moz-align-items: stretch;
+  align-items: stretch;
+  -webkit-align-content: stretch;
+  -moz-align-content: stretch;
+  -ms-flex-line-pack: stretch;
+  align-content: stretch;
+  background: #edf3fa; }
+
+.app-container {
+  overflow: auto;
+  padding-bottom: 100px; }
+
+/*-- Components --*/
+h1 {
+  padding-left: 20px;
+  font-family: Helvetica, sans-serif; }
+
+.board-list {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-direction: normal;
+  -webkit-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  justify-content: center;
+  padding: 10px; }
+  .board-list .add-board {
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    height: 40px;
+    width: 95px;
+    font-size: 12px;
+    color: #ffffff;
+    background: #866daf;
+    border: 0px;
+    border-radius: 5px;
+    margin-left: calc((100% - 95px) / 2); }
+    .board-list .add-board:hover {
+      background: #9e91cb; }
+    .board-list .add-board:active {
+      background: #463f70; }
+
+.board {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-direction: normal;
+  -webkit-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  justify-content: center;
+  position: relative;
+  background: #cbdbf0;
+  padding: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 2px 9px 1px rgba(0, 0, 0, 0.12), 0 4px 2px -2px rgba(0, 0, 0, 0.2); }
+  .board input {
+    border: 0px;
+    border-bottom: 1px solid #645ba0;
+    background: transparent;
+    outline: none;
+    font-size: 25px; }
+  .board .delete-board-button {
+    position: absolute;
+    top: 17px;
+    right: 11px;
+    background: transparent;
+    border: 0px; }
+  .board .task-list {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    justify-content: center;
+    padding: 10px; }
+    .board .task-list .task {
+      position: relative;
+      width: 100%;
+      background: #b1c9e9;
+      padding: 10px;
+      margin-bottom: 10px;
+      box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.07), 0 2px 9px 1px rgba(0, 0, 0, 0.06), 0 4px 2px -2px rgba(0, 0, 0, 0.1); }
+      .board .task-list .task input {
+        width: 100%;
+        border: 0px;
+        border-bottom: 1px solid #645ba0;
+        background: transparent;
+        outline: none;
+        font-size: 15px; }
+      .board .task-list .task .delete-task-button {
+        position: absolute;
+        top: 11px;
+        right: 10px;
+        background: transparent;
+        border: 0px; }
+  .board .add-task-button {
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    height: 40px;
+    width: 95px;
+    font-size: 12px;
+    color: #ffffff;
+    background: #866daf;
+    border: 0px;
+    border-radius: 5px;
+    margin-left: calc((100% - 95px) / 2); }
+    .board .add-task-button:hover {
+      background: #9e91cb; }
+    .board .add-task-button:active {
+      background: #463f70; }
